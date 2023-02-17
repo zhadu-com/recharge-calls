@@ -8,36 +8,36 @@
 </template>
 
 <script>
-	import {homeData as homeDataApi} from '@/api/home.js'
+import {homeData as homeDataApi} from '@/api/home.js'
 	
-	export default {
-		data() {
-			return {
-				title:'测试'
-			}
-		},
-		onLoad(){	
-			this._getHomeData()
-		},
+export default {
+    data() {
+        return {
+            title:'测试'
+        }
+    },
+    onLoad(){	
+        this._getHomeData()
+    },
 	
-		methods: {
-			async _getHomeData(){
-				const{status , data, msg} = await homeDataApi()
+    methods: {
+        async _getHomeData(){
+            const{status , data, msg} = await homeDataApi()
 	
-				if(status = == this.API_STATUS_CODE.SUCCESS){
+            if(status === this.API_STATUS_CODE.SUCCESS){
 					
-				}else{
-					uni.showToast({
-						icon: 'none',
-						title: '首页数据获取失败 请刷新重试',
-						duration:3000
-					});
+            }else{
+                uni.showToast({
+                    icon: 'none',
+                    title: '首页数据获取失败 请刷新重试',
+                    duration:3000
+                })
 
-				}
-				//console.log(this.API_STATUS_CODE);
-			}
-		}
-	}
+            }
+            //console.log(this.API_STATUS_CODE);
+        }
+    }
+}
 </script>
 
 <style>
