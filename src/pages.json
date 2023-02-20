@@ -5,12 +5,70 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		}, {
+			"path": "pages/goods_cate/goods_cate",
+			"style": {
+				"navigationBarTitleText": "商品分类",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/order_addcart/order_addcart",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	],
+	    ,{
+            "path" : "pages/user/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "",
+			"selectedIconPath": "",
+			"text": "CRMEB"
+		}, {
+			"pagePath": "pages/goods_cate/goods_cate",
+			"iconPath": "",
+			"selectedIconPath": "",
+			"text": "商品分类"
+		}, {
+			"pagePath": "pages/order_addcart/order_addcart",
+			"iconPath": "",
+			"selectedIconPath": "",
+			"text": "购物车"
+		}, {
+			"pagePath": "pages/user/index",
+			"iconPath": "",
+			"selectedIconPath": "",
+			"text": "我的"
+		}]
 	}
+
 }

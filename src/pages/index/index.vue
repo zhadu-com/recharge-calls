@@ -9,7 +9,7 @@
 
 <script>
 import {homeData as homeDataApi} from '@/api/home.js'
-	
+const app = getApp();	
 export default {
     data() {
         return {
@@ -25,7 +25,9 @@ export default {
             const{status , data, msg} = await homeDataApi()
 	
             if(status === this.API_STATUS_CODE.SUCCESS){
-					
+				var tabBarDatavb = data.data.tabBar.defaultVal
+			
+				app._initTabBar(tabBarDatavb)
             }else{
                 uni.showToast({
                     icon: 'none',
