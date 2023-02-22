@@ -1,45 +1,50 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
+	<view class="home">	
+		<view class="home-container">
+			<Banner :list='swiperData'></Banner>
 		</view>
 	</view>
 </template>
 
 <script>
-import {homeData as homeDataApi} from '@/api/home.js'
-const app = getApp();	
-export default {
-    data() {
-        return {
-            title:'测试'
-        }
-    },
-    onLoad(){	
-        this._getHomeData()
-    },
+	import Banner from './components/Banner.vue'
+	import {homeData as homeDataApi} from '@/api/home.js'
 	
-    methods: {
-        async _getHomeData(){
-            const{status , data, msg} = await homeDataApi()
+	const app = getApp();
 	
-            if(status === this.API_STATUS_CODE.SUCCESS){
-				var tabBarDatavb = data.data.tabBar.defaultVal
-			
-				app._initTabBar(tabBarDatavb)
-            }else{
-                uni.showToast({
-                    icon: 'none',
-                    title: '首页数据获取失败 请刷新重试',
-                    duration:3000
-                })
+	export default {
+		components: {
+			Banner
+		},
+		data() {
+			return{
+				swiperData:{}
+			}
+		},
+		onLoad() {
+			this._getHomeData()
+		},
 
-            }
-            //console.log(this.API_STATUS_CODE);
-        }
-    }
-}
+		methods: {
+			async _getHomeData() {
+				const {status,data,msg} = await homeDataApi()
+
+				if (status === this.API_STATUS_CODE.SUCCESS) {
+					var tabBarDatavb = data.data.tabBar.defaultVal
+					this.swiperData = data.data.swiperBg.defaultVal
+				
+					app._initTabBar(tabBarDatavb)
+				} else {
+					uni.showToast({
+						icon: 'none',
+						title: '首页数据获取失败 请刷新重试',
+						duration: 3000
+					})
+
+				}
+			}
+		}
+	}
 </script>
 
 <style>

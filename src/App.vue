@@ -9,7 +9,6 @@
 		methods: {			
 			 _initTabBar(data) {				
 				data.tabBarList.list.forEach(({link,name,imgList}, idx)=>{
-					console.log(data)
 					uni.setTabBarItem({
 						index: idx,
 						pagePath: link,
