@@ -3,7 +3,7 @@
 		<view class='banner-container'>
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration">
-				<swiper-item v-for="item in list.imgList.list">
+				<swiper-item v-for="item in list.swiperConfig.list">
 					<image :src="item.img"></image>
 				</swiper-item>
 			</swiper>
@@ -17,8 +17,8 @@
 			list: {
 				type: Object,
 				default: () => {}
-			}
-		}
+			},
+		} 				
 	}
 </script>
 

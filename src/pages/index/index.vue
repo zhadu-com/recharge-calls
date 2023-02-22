@@ -8,7 +8,8 @@
 
 <script>
 	import Banner from './components/Banner.vue'
-	import {homeData as homeDataApi} from '@/api/home.js'
+	import {getNavigationData as getNavigationDataApi} from '@/api/index'
+	import {getSwiperBgData as getSwiperBgDataApi} from '@/api/index'
 	
 	const app = getApp();
 	
@@ -27,13 +28,13 @@
 
 		methods: {
 			async _getHomeData() {
-				const {status,data,msg} = await homeDataApi()
-
-				if (status === this.API_STATUS_CODE.SUCCESS) {
-					var tabBarDatavb = data.data.tabBar.defaultVal
-					this.swiperData = data.data.swiperBg.defaultVal
-				
-					app._initTabBar(tabBarDatavb)
+				const navigationDa = await getNavigationDataApi()
+				const swiperBgDa = await getSwiperBgDataApi()
+			
+				if (navigationDa.status === this.API_STATUS_CODE.SUCCESS && swiperBgDa.status === this.API_STATUS_CODE.SUCCESS) {			
+					this.swiperData = swiperBgDa.data.data.value['1642948693686001']
+					app._initTabBar(navigationDa.data.data)
+					console.log(this.swiperData)
 				} else {
 					uni.showToast({
 						icon: 'none',

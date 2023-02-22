@@ -7,8 +7,8 @@
 		onHide: function() {
 		},
 		methods: {			
-			 _initTabBar(data) {				
-				data.tabBarList.list.forEach(({link,name,imgList}, idx)=>{
+			 _initTabBar(data) {	
+				data.menuList.forEach(({link,name,imgList}, idx)=>{
 					uni.setTabBarItem({
 						index: idx,
 						pagePath: link,
